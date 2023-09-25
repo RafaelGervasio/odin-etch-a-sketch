@@ -54,6 +54,9 @@ button.addEventListener('click', () =>{
         alert("Grid size can't be over 99")
         squareSize = prompt('Choose your grid size', '16')
     }
+    if (!squareSize || squareSize === 0) {
+        squareSize = 16
+    }
 
     create_board(Number(squareSize))
     pixelated()
