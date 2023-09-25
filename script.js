@@ -1,8 +1,5 @@
 const container = document.querySelector('.container')
 
-//Pixel size not working
-
-
 
 function create_board (squareSize){
     if (container.children.length > 0)
@@ -10,9 +7,10 @@ function create_board (squareSize){
         container.innerHTML = ''
     }
     
-    console.log(squareSize)
-    pixelSize = 560 / squareSize
-    console.log(pixelSize)
+    borderSize = squareSize*2
+    pixelSize = (592 - borderSize) / squareSize
+
+
 
     for(i=0; i<squareSize; i++){
         const rowContainer = document.createElement('div')
@@ -50,7 +48,13 @@ pixelated()
 
 const button = document.querySelector('#sizeButton')
 button.addEventListener('click', () =>{
+
     squareSize = prompt('Choose your grid size', '16')
+    while (squareSize>99){
+        alert("Grid size can't be over 99")
+        squareSize = prompt('Choose your grid size', '16')
+    }
+
     create_board(Number(squareSize))
     pixelated()
 })

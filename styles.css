@@ -29,7 +29,17 @@ body{
 }
 
 .btnContainer{
+    margin-top: 20px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#sizeButton{
+    padding: 20px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+
 }
