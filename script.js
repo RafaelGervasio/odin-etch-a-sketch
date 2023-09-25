@@ -1,16 +1,16 @@
 const container = document.querySelector('.container')
 
-//Old board is not deleting
-//Pizel size is not working
+//Pixel size not working
 
 
 
 function create_board (squareSize){
-    if (container.classList.contains('rowContainer'))
+    if (container.children.length > 0)
     {
         container.innerHTML = ''
     }
     
+    console.log(squareSize)
     pixelSize = 560 / squareSize
     console.log(pixelSize)
 
@@ -21,8 +21,9 @@ function create_board (squareSize){
         for(j=0; j<squareSize; j++){
             const div = document.createElement('div')
             div.classList.add('divSquare')
-            div.style.height = `${pixelSize}px;`
-            div.style.width = `${pixelSize}px;`
+            
+            div.style.height = `${pixelSize}px`
+            div.style.width = `${pixelSize}px`
 
             rowContainer.appendChild(div)
 
@@ -49,8 +50,8 @@ pixelated()
 
 const button = document.querySelector('#sizeButton')
 button.addEventListener('click', () =>{
-    prompt('Choose your grid size', a='16')
-    create_board()
+    squareSize = prompt('Choose your grid size', '16')
+    create_board(Number(squareSize))
     pixelated()
 })
 
